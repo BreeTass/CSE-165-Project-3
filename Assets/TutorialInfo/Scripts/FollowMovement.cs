@@ -3,31 +3,6 @@ using UnityEngine.AI;
 
 public class FollowMovement : MonoBehaviour
 {
-    //public NavMeshAgent agent;
-    //public Animator animator;
-
-    //public Transform target;
-
-    //void Start()
-    //{
-    //    agent.updateRotation = true;
-    //}
-
-    //void Update()
-    //{
-    //    if (target == null)
-    //        return;
-
-    //    if (!agent.isOnNavMesh)
-    //        return;
-
-    //    agent.SetDestination(target.position);
-
-    //    bool walking = agent.velocity.magnitude > 0.05f;
-
-    //    animator.SetBool("Walking", walking);
-    //}
-
     public NavMeshAgent agent;
     public Animator animator;
     public Transform target;
@@ -40,13 +15,22 @@ public class FollowMovement : MonoBehaviour
     public void SetRunning(bool isRunning)
     {
         running = isRunning;
-        agent.speed = running ? runSpeed : walkSpeed;
+        if (running)
+        {
+            agent.speed = runSpeed;
+        }
+        else
+        {
+            agent.speed = walkSpeed;
+        }
     }
 
     void Update()
     {
         if (target == null || !agent.isOnNavMesh)
+        {
             return;
+        }
 
         agent.SetDestination(target.position);
 
