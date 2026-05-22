@@ -1772,7 +1772,7 @@ MonoBehaviour:
   floorPlane: {fileID: 1111301695}
   surface: {fileID: 1108419237}
   agent: {fileID: 428400371}
-  wallMaterial: {fileID: 2100000, guid: c43c3da934ed7c440b653391e1117a9e, type: 2}
+  wallMaterial: {fileID: 0}
 --- !u!1 &1430834711
 GameObject:
   m_ObjectHideFlags: 0
