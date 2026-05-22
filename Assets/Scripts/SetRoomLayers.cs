@@ -11,6 +11,7 @@ public class SetRoomLayers : MonoBehaviour
     public NavMeshAgent agent;
 
     public Material wallMaterial;
+    public Material ceilingMaterial;
 
     private bool setupDone = false;
 
@@ -34,10 +35,27 @@ public class SetRoomLayers : MonoBehaviour
             string name = anchor.gameObject.name.ToUpper();
 
             if (name.Contains("FLOOR"))
+            {
                 floorAnchor = anchor;
+            }
 
             if (name.Contains("WALL"))
+            {
                 SetupWall(anchor.gameObject);
+            }
+
+            if (name.Contains("CEILING"))
+            {
+                SetLayerRecursively(
+                    anchor.gameObject,
+                    LayerMask.NameToLayer("Wall")
+                );
+
+                ApplyMaterialRecursively(
+                    anchor.gameObject,
+                    ceilingMaterial
+                );
+            }
         }
 
         if (floorAnchor == null)
@@ -86,7 +104,7 @@ public class SetRoomLayers : MonoBehaviour
         float depth = maxZ - minZ;
 
         floorPlane.transform.position = center;
-        floorPlane.transform.rotation = Quaternion.identity;
+        floorPlane.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         floorPlane.transform.localScale = new Vector3(
             width / 10f,

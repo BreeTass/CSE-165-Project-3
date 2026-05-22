@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 686618888}
   - component: {fileID: 686618887}
   - component: {fileID: 686618886}
+  - component: {fileID: 686618889}
   m_Layer: 0
   m_Name: '[BuildingBlock] MR Utility Kit'
   m_TagString: Untagged
@@ -1070,6 +1071,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &686618889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686618885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229f4534c97d1ce438d4003dd04ec578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetRoomLayers
+  floorPlane: {fileID: 0}
+  surface: {fileID: 0}
+  agent: {fileID: 0}
+  wallMaterial: {fileID: 0}
 --- !u!1 &839763401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1773,6 @@ MonoBehaviour:
   surface: {fileID: 1108419237}
   agent: {fileID: 428400371}
   wallMaterial: {fileID: 2100000, guid: c43c3da934ed7c440b653391e1117a9e, type: 2}
-  ceilingMaterial: {fileID: 2100000, guid: 76aff2e3c87b2204391e45d2d3bb386d, type: 2}
 --- !u!1 &1430834711
 GameObject:
   m_ObjectHideFlags: 0
